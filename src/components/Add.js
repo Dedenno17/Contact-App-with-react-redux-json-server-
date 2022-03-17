@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Add = () => {
 
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ phone, setPhone ] = useState('');
+
+    const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,7 +18,12 @@ const Add = () => {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(contact)
-        }).then(() => alert('contact has been added!!') );
+        }).then(() => {
+            alert('contact has been added!!');
+            setTimeout(() => {
+                history.push('/');
+            }, 1000);
+        });
     }
 
     return (

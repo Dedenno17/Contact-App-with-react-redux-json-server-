@@ -3,7 +3,7 @@ const TableContact = ({ contacts }) => {
     const handleDelete = (id) => {
         return fetch('http://localhost:8000/contacts/' + id, {
             method: 'DELETE'
-        }).then(() => alert('contact has been delete'));
+        }).then(() => {});
     }
 
     return (
