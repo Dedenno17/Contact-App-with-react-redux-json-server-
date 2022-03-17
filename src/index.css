@@ -69,7 +69,7 @@ code {
 .table-contact {
   align-self: center;
   border-collapse: collapse;
-  width: 80%; 
+  width: 90%; 
 }
 
 .table-contact th, .table-contact td {
@@ -92,11 +92,11 @@ code {
 }
 
 .table-contact td:nth-child(2) {
-  width: 25%;
+  width: 20%;
 }
 
 .table-contact td:nth-child(3) {
-  width: 25%;
+  width: 30%;
 }
 
 .table-contact td:last-child {

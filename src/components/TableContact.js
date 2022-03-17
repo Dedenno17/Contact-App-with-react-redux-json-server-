@@ -1,33 +1,36 @@
-const TableContact = () => {
+const TableContact = ({ contacts }) => {
+
+    const handleDelete = (id) => {
+        return fetch('http://localhost:8000/contacts/' + id, {
+            method: 'DELETE'
+        }).then(() => alert('contact has been delete'));
+    }
+
     return (
         <table className="table-contact">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Roman</td>
-                <td>roman@gmail.com</td>
-                <td>1234567899</td>
-                <td>
-                    <button className="edit">Edit</button>
-                    <button className="delete">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Britney</td>
-                <td>britney@gmail.com</td>
-                <td>09876543</td>
-                <td>
-                    <button className="edit">Edit</button>
-                    <button className="delete">Delete</button>
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {contacts.map((item) => {
+                    return <tr key={item.id}>
+                                <td>{contacts.indexOf(item) + 1}</td>
+                                <td>{item.name}</td>
+                                <td>{item.email}</td>
+                                <td>{item.phone}</td>
+                                <td>
+                                    <button className="edit">Edit</button>
+                                    <button className="delete" onClick={ () => handleDelete(item.id) }>Delete</button>
+                                </td>
+                            </tr>
+                })}
+            </tbody>
         </table>
     );
 }
