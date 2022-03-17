@@ -1,0 +1,16 @@
+{
+    "contacts" : [
+        {
+            "id": "1",
+            "name": "Jackson Brown",
+            "email": "jacksonbrown@gmail.com",
+            "phone": "081497526783"
+        },
+        {
+            "id": "2",
+            "name": "Liliana Varcheti",
+            "email": "lilianavarcheti@gmail.com",
+            "phone": "081256327189"
+        }
+    ]
+}

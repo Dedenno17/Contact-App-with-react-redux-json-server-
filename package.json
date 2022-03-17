@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "watch": "npx json-server --watch src/data/contact.json"
+    "watch": "npx json-server --watch src/data/contacts.json --port 8000"
   },
   "eslintConfig": {
     "extends": "react-app"
