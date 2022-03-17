@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +16,101 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+/* header */
+.header {
+  width: 100%;
+  background-color: #353945;
+}
+
+.logo {
+  max-width: 90%;
+  height: 100%;
+  padding: 15px 0;
+  margin: auto;
+}
+
+.logo  {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+
+/* home */
+.home {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-contact {
+  align-self: end;
+  margin: 50px 0 50px 0;
+  padding: 8px 10px;
+  color: #555;
+  font-size: .90rem;
+  border: 1px solid #888;
+  border-radius: 3px;
+  background-color: #fff;
+  outline: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+  cursor: pointer;
+}
+
+.table-contact {
+  align-self: center;
+  border-collapse: collapse;
+  width: 80%; 
+}
+
+.table-contact th, .table-contact td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table-contact tr:hover {background-color: #ddd;}
+
+.table-contact th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #353945;
+  color: white;
+}
+
+.table-contact td:first-child {
+  width: 5%;
+}
+
+.table-contact td:nth-child(2) {
+  width: 25%;
+}
+
+.table-contact td:nth-child(3) {
+  width: 25%;
+}
+
+.table-contact td:last-child {
+  text-align: center;
+}
+
+.table-contact tr td:last-child button {
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  margin-right: 5px;
+  cursor: pointer;
+} 
+
+.table-contact tr td:last-child .edit {
+  background-color: #0079FF;
+}
+
+.table-contact tr td:last-child .delete {
+  background-color: #F04241;
 }
