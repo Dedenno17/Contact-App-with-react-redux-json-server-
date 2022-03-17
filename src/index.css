@@ -32,9 +32,10 @@ code {
   margin: auto;
 }
 
-.logo  {
+.logo a{
   color: #fff;
   font-size: 1.3rem;
+  text-decoration: none;
 }
 
 
@@ -168,4 +169,8 @@ code {
   border-radius: 5px;
   outline: none;
   cursor: pointer;
+}
+
+.add form button:hover {
+  background-color: #1c1c1c;
 }
