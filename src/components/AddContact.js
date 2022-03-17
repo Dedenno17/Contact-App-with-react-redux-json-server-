@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 const AddContact = () => {
     return (
         <>
-            <button className="add-contact">Add Contact</button>
+            <Link to='/add' className="add-contact">Add Contact</Link>
         </>
     );
 }

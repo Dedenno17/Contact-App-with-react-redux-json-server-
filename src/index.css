@@ -47,6 +47,7 @@ code {
 }
 
 .add-contact {
+  text-decoration: none;
   align-self: end;
   margin: 50px 0 50px 0;
   padding: 8px 10px;
@@ -58,6 +59,11 @@ code {
   outline: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
   cursor: pointer;
+}
+
+.add-contact:hover {
+  background-color: #353945;
+  color: #fff;
 }
 
 .table-contact {
@@ -113,4 +119,53 @@ code {
 
 .table-contact tr td:last-child .delete {
   background-color: #F04241;
+}
+
+
+
+/* add */
+.add {
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.add p {
+  font-size: 5rem;
+  margin: 20px 0;
+}
+
+.add form {
+  margin: 0 auto;
+  width: 70%;
+  padding: 40px 50px 50px 50px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, .3);
+  display: flex;
+  flex-direction: column;
+}
+
+.add form input {
+  width: 100%;
+  height: 35px;
+  margin-top: 20px;
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  outline: none;
+}
+
+.add form button {
+  width: 100%;
+  height: 35px;
+  margin-top: 20px;
+  font-size: 1rem;
+  padding: 10px;
+  background-color: #353945;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
 }
