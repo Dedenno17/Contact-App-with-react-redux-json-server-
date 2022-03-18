@@ -27,7 +27,7 @@ const TableContact = ({ contacts }) => {
                                 <td>{item.email}</td>
                                 <td>{item.phone}</td>
                                 <td>
-                                    <a href='/' className="edit">Edit</a>
+                                    <Link to={`/edit/${item.id}`} className="edit">Edit</Link>
                                     <button className="delete" onClick={ () => handleDelete(item.id) }>Delete</button>
                                 </td>
                             </tr>

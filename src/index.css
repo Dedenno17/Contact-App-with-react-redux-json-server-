@@ -158,3 +158,83 @@ code {
 .add form button:hover {
   background-color: #1c1c1c;
 }
+
+
+/* edit */
+.edit {
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit form {
+  margin: 0 auto;
+  width: 70%;
+  padding: 40px 50px 50px 50px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, .3);
+  display: flex;
+  flex-direction: column;
+}
+
+.edit form input {
+  width: 100%;
+  height: 35px;
+  margin-top: 20px;
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  outline: none;
+}
+
+.edit a {
+  text-decoration: none;
+  align-self: end;
+  margin: 50px 0 50px 0;
+  padding: 8px 10px;
+  color: #555;
+  font-size: .90rem;
+  border: 1px solid #888;
+  border-radius: 3px;
+  background-color: #fff;
+  outline: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+  cursor: pointer;
+}
+
+.edit a:hover {
+  background-color: #353945;
+  color: #fff;
+}
+
+.edit .btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit button {
+  padding: 10px;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.edit button:hover {
+  filter: brightness(.8);
+}
+
+.edit button.cancel {
+  background-color: #E94B47;
+}
+
+.edit button.update {
+  background-color: #0078FE;
+}
+
