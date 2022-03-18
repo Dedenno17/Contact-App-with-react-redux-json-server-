@@ -13,9 +13,16 @@ const Home = () => {
         fetch('http://localhost:8000/contacts')
             .then((res) => res.json())
             .then((res) => {
-                dispatch(setContacts(res));
+                let newRes = [...res];
+                if( newRes[0].name[0] < newRes[1].name[0] ){
+                    [newRes[0], newRes[1]] = [ newRes[1], newRes[0] ];    
+                };
+
+                dispatch(setContacts(newRes));
+
+                console.log(res);
             })
-    });
+    },[]);
 
 
     return (
