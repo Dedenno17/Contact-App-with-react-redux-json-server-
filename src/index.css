@@ -104,6 +104,28 @@ code {
   text-align: center;
 }
 
+.table-contact td:last-child .edit {
+  display: inline;
+  background-color: #0078FE;
+  padding:  3px 8px ;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.table-contact td:last-child .delete {
+  background-color: #E94B47;
+  padding: 6px ;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transform: translateY(-2px);
+}
 
 
 
