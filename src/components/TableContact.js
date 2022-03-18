@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const TableContact = ({ contacts }) => {
 
     const handleDelete = (id) => {
@@ -25,7 +27,7 @@ const TableContact = ({ contacts }) => {
                                 <td>{item.email}</td>
                                 <td>{item.phone}</td>
                                 <td>
-                                    <button className="edit">Edit</button>
+                                    <a href='/' className="edit">Edit</a>
                                     <button className="delete" onClick={ () => handleDelete(item.id) }>Delete</button>
                                 </td>
                             </tr>
