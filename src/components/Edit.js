@@ -1,24 +1,45 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 const Edit = () => {
 
     const { id } = useParams();
-    const [contact, setContact] = useState('');
-    // const [ updateName, setUpdateName ] = useState('');
-    // const [ updateEmail, setUpdateEmail ] = useState('');
-    // const [ updatePhone, setUpdatePhone ] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
+    const history = useHistory();
 
     useEffect(() => {
 
         fetch('http://localhost:8000/contacts/' + id)
             .then((res) => res.json())
             .then((res) => {
-                setContact(res);
+                setName(res.name);
+                setEmail(res.email);
+                setPhone(res.phone);
             })
 
     }, []);
+
+    const handleUpdate = () => {
+
+        const newContact = { name: name, email: email, phone: phone }
+
+        fetch('http://localhost:8000/contacts/' + id, {
+            method: 'PATCH',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newContact)
+        }).then(() => {
+            alert('Contact has been updated!!');
+            history.push('/');
+    })
+
+    }
+
+    const handleCancel = () => {
+        history.push('/');
+    }
 
 
     return (
@@ -27,20 +48,22 @@ const Edit = () => {
             <form>
                 <input
                     type='text'
-                    value={ contact.name }
+                    value={ name }
+                    onChange={ (e) => setName(e.target.value) }
                 />
                 <input
                     type='text'
-                    value={contact.email}
-
+                    value={ email }
+                    onChange={ (e) => setEmail(e.target.value) }
                 />
                 <input
                     type='text'
-                    value={contact.phone}
+                    value={phone}
+                    onChange={ (e) => setPhone(e.target.value) }
                 />
                 <div className="btn">
-                    <button className="update">Update Contact</button>
-                    <button className="cancel">Cancel</button>
+                    <button className="update" onClick={ handleUpdate }>Update Contact</button>
+                    <button className="cancel" onClick={ handleCancel }>Cancel</button>
                 </div>
             </form>
         </div>        
