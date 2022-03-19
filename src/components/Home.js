@@ -10,18 +10,34 @@ const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch('http://localhost:8000/contacts')
-            .then((res) => res.json())
-            .then((res) => {
-                let newRes = [...res];
-                if( newRes[0].name[0] < newRes[1].name[0] ){
-                    [newRes[0], newRes[1]] = [ newRes[1], newRes[0] ];    
-                };
 
-                dispatch(setContacts(newRes));
+        const abortCont = new AbortController();
 
-                console.log(res);
-            })
+        setTimeout(() => {
+            fetch('http://localhost:8000/contacts', { signal: abortCont.signal })
+                .then((response) => {
+                    if( !response.ok ){
+                        throw new Error('could not fetch the data for that resource!');
+                    }else{
+                        return response.json();
+                    }
+                })
+                .then((res) => {
+                    let newRes = [...res];
+                    dispatch(setContacts(newRes));
+                })
+                .catch((err) => {
+                    if( err.name === 'AbortError' ){
+                        return;
+                    }else{
+                        alert(err.message);
+                    }
+                })
+        }, 1000)
+
+        return () => abortCont.abort();
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
 

@@ -9,6 +9,7 @@ const Edit = () => {
     const [phone, setPhone] = useState('');
 
     const history = useHistory();
+    
 
     useEffect(() => {
 
@@ -20,6 +21,7 @@ const Edit = () => {
                 setPhone(res.phone);
             })
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleUpdate = () => {
@@ -32,7 +34,7 @@ const Edit = () => {
             body: JSON.stringify(newContact)
         }).then(() => {
             alert('Contact has been updated!!');
-            history.push('/');
+            // history.push('/');
     })
 
     }
