@@ -19,6 +19,7 @@ code {
 }
 
 
+
 /* header */
 .header {
   width: 100%;
@@ -45,6 +46,7 @@ code {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .add-contact {
@@ -135,6 +137,7 @@ code {
   max-width: 80%;
   margin: 0 auto;
   text-align: center;
+  position: relative;
 }
 
 .add p {
@@ -260,3 +263,70 @@ code {
   background-color: #0078FE;
 }
 
+
+
+/* modal */
+.modal {
+  position: absolute;
+  top: -40px;
+  right: -70px;
+  color: #fff;
+  width: 300px;
+  height: 55px;
+  border-radius: 3px;
+  overflow: hidden;
+  transform: translateX(200%);
+  transition: all .3s ease-in-out;
+}
+
+.modal .message-close {
+  display: flex;
+  height: 93%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-close p {
+  margin-left: 5px;
+  font-size: 1.1rem;
+}
+
+.message-close button {
+  margin-right: 5px;
+  background-color: transparent;
+  height: 100%;
+  padding: 0 5px 0 10px;
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal .loading {
+  display: block;
+  width: 100%;
+  height: 7%;
+  border: 1px solid green;
+  display: flex;
+  justify-content: end;
+}
+
+.modal .loading span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  transform: translateX(100%);
+  transition: all;
+  transition-delay: .3s;
+  transition-duration: 3s;
+  transition-timing-function: ease;
+}
+
+.modal.true {
+  transform: translateX(0);
+}
+
+.modal.true > .loading span {
+  transform: translateX(0);
+}

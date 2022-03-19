@@ -1,7 +1,19 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Modal from "./Modal";
+import { setExistence } from "../features/modalExistence";
+import { setStatus } from "../features/modalStatus";
+import { setMessage } from "../features/modalMessage";
 
 const Add = () => {
+    
+    const modalStatus = useSelector((state) => state.modalStatus.status); 
+    const modalExistence = useSelector((state) => state.modalExistence.existence); 
+    const modalMessage = useSelector((state) => state.modalMessage.message);
+
+    const dispatch = useDispatch();
+
 
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
@@ -19,11 +31,18 @@ const Add = () => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(contact)
         }).then(() => {
-            alert('contact has been added!!');
+            dispatch(setStatus('succes'));
+            dispatch(setExistence('true'));
+            dispatch(setMessage('SuccesFully!!'));
+            
             setTimeout(() => {
                 history.push('/');
-            }, 1000);
+            }, 2000);
         });
+    }
+
+    const handleRefuse = () => {
+        dispatch(setExistence(''));
     }
 
     return (
@@ -35,21 +54,25 @@ const Add = () => {
                     placeholder="Full name"
                     value={ name }
                     onChange={ (e) => setName(e.target.value) }
+                    required
                 />
                 <input
                     type='email'
                     placeholder="Email"
                     value={ email }
                     onChange={ (e) => setEmail(e.target.value) }
+                    required
                 />
                 <input
                     type='text'
                     placeholder="Phone"
                     value={ phone }
                     onChange={ (e) => setPhone(e.target.value) }
+                    required
                 />
-                <button>Add Student</button>
+                <button onClick={ handleRefuse }>Add Student</button>
             </form>
+            <Modal show={ modalExistence } status={ modalStatus } message={ modalMessage }/>
         </div>
     );
 }
