@@ -57,10 +57,17 @@ code {
   position: relative;
 }
 
+.home h1 {
+  align-self: center;
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #353945;
+}
+
 .add-contact {
   text-decoration: none;
   align-self: end;
-  margin: 50px 0 50px 0;
+  margin: 30px 55px 20px 0;
   padding: 8px 10px;
   color: #555;
   font-size: .90rem;
@@ -151,6 +158,7 @@ code {
 .add p {
   font-size: 5rem;
   margin: 20px 0;
+  color: #353945;
 }
 
 .add form {
@@ -200,6 +208,15 @@ code {
   text-align: center;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.edit p {
+  position: absolute;
+  top: 90px;
+  left: 190px;
+  font-size: 1.5rem;
+  color: #353945;
 }
 
 .edit form {
@@ -226,7 +243,7 @@ code {
 .edit a {
   text-decoration: none;
   align-self: end;
-  margin: 50px 0 50px 0;
+  margin: 90px 180px 20px 0;
   padding: 8px 10px;
   color: #555;
   font-size: .90rem;

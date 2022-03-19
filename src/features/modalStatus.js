@@ -9,13 +9,13 @@ export const modalStatusSlice = createSlice({
         setStatus: (state, actions) => {
             switch(actions.payload) {
                 case 'danger':
-                    actions.payload = 'red';
+                    actions.payload = '#F65A3B';
                     break;
                 case 'warn':
-                    actions.payload = 'orange';
+                    actions.payload = '#F9BB07';
                     break;
                 case 'succes':
-                    actions.payload = 'green';
+                    actions.payload = '#00A00A';
                     break;
                 default:
                     break;

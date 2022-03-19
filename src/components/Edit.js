@@ -58,6 +58,7 @@ const Edit = () => {
 
     return (
         <div className="edit">
+            <p>Edit Contact</p>
             <Link to='/'>Go Back</Link>
             <form onSubmit={ handleUpdate }>
                 <input

@@ -43,6 +43,7 @@ const Home = () => {
 
     return (
         <div className="home">
+            <h1>Student's Contact</h1>
             <AddContact />
             { contacts && <TableContact contacts={ contacts } />}
         </div>
