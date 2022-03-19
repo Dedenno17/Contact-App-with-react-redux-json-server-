@@ -49,25 +49,27 @@ const Add = () => {
             dispatch(setMessage('Please fill the field!!'));
         }else{
             const data = await getData();
-            data.forEach(con => {
-                
-                if( con.name === name ) {
+            for( let i = 0; i < data.length; i++ ){
+                if( data[i].name === name ){
                     dispatch(setStatus('danger'));
                     dispatch(setExistence(true));
                     dispatch(setMessage(`This name already exists!!`));
-                } else if( con.email === email ) {
+                    return;
+                } else if( data[i].email === email ){
                     dispatch(setStatus('danger'));
                     dispatch(setExistence(true));
                     dispatch(setMessage(`This email already exists!!`));
-                } else if( con.phone === phone) {
+                    return;
+                } else if( data[i].phone === phone ){
                     dispatch(setStatus('danger'));
                     dispatch(setExistence(true));
                     dispatch(setMessage(`This phone already exists!!`));
-                } else {
-                    const contact = { name: name, email: email, phone: phone };
-                    sendData(contact);
+                    return;
                 }
-            });
+            }
+
+            const contact = { name: name, email: email, phone: phone };
+            sendData(contact);
 
         }
 
