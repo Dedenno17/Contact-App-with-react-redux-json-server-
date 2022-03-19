@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
+import { setExistence } from "../features/modalExistence";
+import { setStatus } from "../features/modalStatus";
+import { setMessage } from "../features/modalMessage";
 
 const Edit = () => {
 
@@ -9,6 +13,8 @@ const Edit = () => {
     const [phone, setPhone] = useState('');
 
     const history = useHistory();
+
+    const dispatch = useDispatch();
     
 
     useEffect(() => {
@@ -24,7 +30,8 @@ const Edit = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const handleUpdate = () => {
+    const handleUpdate = (e) => {
+        e.preventDefault();
 
         const newContact = { name: name, email: email, phone: phone }
 
@@ -33,9 +40,14 @@ const Edit = () => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newContact)
         }).then(() => {
-            alert('Contact has been updated!!');
-            // history.push('/');
-    })
+            dispatch(setStatus('succes'));
+            dispatch(setExistence(true));
+            dispatch(setMessage('Contact updated succesfully!!'));
+
+            setTimeout(() => {
+                history.push('/');
+            }, 1500);
+        })
 
     }
 
@@ -47,7 +59,7 @@ const Edit = () => {
     return (
         <div className="edit">
             <Link to='/'>Go Back</Link>
-            <form>
+            <form onSubmit={ handleUpdate }>
                 <input
                     type='text'
                     value={ name }
@@ -64,7 +76,7 @@ const Edit = () => {
                     onChange={ (e) => setPhone(e.target.value) }
                 />
                 <div className="btn">
-                    <button className="update" onClick={ handleUpdate }>Update Contact</button>
+                    <button className="update">Update Contact</button>
                     <button className="cancel" onClick={ handleCancel }>Cancel</button>
                 </div>
             </form>

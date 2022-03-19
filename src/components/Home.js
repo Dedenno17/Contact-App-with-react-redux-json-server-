@@ -3,7 +3,6 @@ import TableContact from "./TableContact";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
 import { setContacts } from "../features/contact";
-import Modal from "./Modal";
 
 const Home = () => {
 
@@ -39,14 +38,13 @@ const Home = () => {
         return () => abortCont.abort();
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]);
+    });
 
 
     return (
         <div className="home">
             <AddContact />
             { contacts && <TableContact contacts={ contacts } />}
-            <Modal status={'green'} message={'Succesfully!!'}/>
         </div>
     );
 }

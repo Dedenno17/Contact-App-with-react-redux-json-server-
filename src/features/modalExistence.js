@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const intialStateValue = '';
+const intialStateValue = false;
 
 export const modalExistenceSlice = createSlice({
     name: 'modalExistence',
     initialState: {existence: intialStateValue},
     reducers: {
         setExistence: (state, actions) => {
-            state.existence = actions.payload;
+            if( actions.payload === false ) {
+                state.existence = '';
+            }else{
+                state.existence = 'show';
+            }
         }
     }
 })
