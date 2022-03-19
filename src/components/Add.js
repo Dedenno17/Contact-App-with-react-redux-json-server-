@@ -6,8 +6,6 @@ import { setStatus } from "../features/modalStatus";
 import { setMessage } from "../features/modalMessage";
 
 const Add = () => {
-    
-
 
     const dispatch = useDispatch();
 
@@ -18,24 +16,61 @@ const Add = () => {
 
     const history = useHistory();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const contact = { name: name, email: email, phone: phone };
-
+    const sendData = (contains) => {
         fetch('http://localhost:8000/contacts', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(contact)
+            body: JSON.stringify(contains)
         }).then(() => {
             dispatch(setStatus('succes'));
             dispatch(setExistence(true));
-            dispatch(setMessage('SuccesFully!!'));
+            dispatch(setMessage('Contact added succesfully!!'));
             
             setTimeout(() => {
                 history.push('/');
             }, 1500);
         });
+    }
+
+
+    const getData = () => {
+        return fetch('http://localhost:8000/contacts')
+            .then((res) => res.json())
+            .then((res) => res)
+    }
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if( name === '' || email === '' || phone === '' ) {
+            dispatch(setStatus('warn'));
+            dispatch(setExistence(true));
+            dispatch(setMessage('Please fill the field!!'));
+        }else{
+            const data = await getData();
+            data.forEach(con => {
+                
+                if( con.name === name ) {
+                    dispatch(setStatus('danger'));
+                    dispatch(setExistence(true));
+                    dispatch(setMessage(`This name already exists!!`));
+                } else if( con.email === email ) {
+                    dispatch(setStatus('danger'));
+                    dispatch(setExistence(true));
+                    dispatch(setMessage(`This email already exists!!`));
+                } else if( con.phone === phone) {
+                    dispatch(setStatus('danger'));
+                    dispatch(setExistence(true));
+                    dispatch(setMessage(`This phone already exists!!`));
+                } else {
+                    const contact = { name: name, email: email, phone: phone };
+                    sendData(contact);
+                }
+            });
+
+        }
+
     }
 
     return (
@@ -47,21 +82,18 @@ const Add = () => {
                     placeholder="Full name"
                     value={ name }
                     onChange={ (e) => setName(e.target.value) }
-                    required
                 />
                 <input
                     type='email'
                     placeholder="Email"
                     value={ email }
                     onChange={ (e) => setEmail(e.target.value) }
-                    required
                 />
                 <input
                     type='text'
                     placeholder="Phone"
                     value={ phone }
                     onChange={ (e) => setPhone(e.target.value) }
-                    required
                 />
                 <button>Add Student</button>
             </form>

@@ -5,7 +5,7 @@ const Modal = ({ show, message, status, handleRefuse}) => {
                 <p>{ message }</p>
                 <button onClick={ handleRefuse } >X</button>
             </div>
-            <span className="loading" >
+            <span className="loading" style={{ border: `1px solid ${status}` }}>
                 <span style={{backgroundColor: status}}></span>
             </span>
         </div>

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Modal from "./Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { setExistence } from "../features/modalExistence";
-import { useEffect } from "react";
 
 const Header = () => {
 
@@ -12,12 +11,9 @@ const Header = () => {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        setTimeout(() => {
-            dispatch(setExistence(false));
-        }, 3000);
-    })
-
+    setTimeout(() => {
+        dispatch(setExistence(false));
+    }, 3000);
 
     const handleRefuse = () => {
         dispatch(setExistence(false));
