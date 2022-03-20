@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { setExistence } from "../features/modalExistence";
 import { setStatus } from "../features/modalStatus";
 import { setMessage } from "../features/modalMessage";
+import useFetch from "../hooks/useFetch";
 
 const Add = () => {
 
@@ -32,13 +33,7 @@ const Add = () => {
         });
     }
 
-
-    const getData = () => {
-        return fetch('http://localhost:8000/contacts')
-            .then((res) => res.json())
-            .then((res) => res)
-    }
-
+    const { contacts } = useFetch('http://localhost:8000/contacts', 'GET');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,19 +43,18 @@ const Add = () => {
             dispatch(setExistence(true));
             dispatch(setMessage('Please fill the field!!'));
         }else{
-            const data = await getData();
-            for( let i = 0; i < data.length; i++ ){
-                if( data[i].name === name ){
+            for( let i = 0; i < contacts.length; i++ ){
+                if( contacts[i].name === name ){
                     dispatch(setStatus('danger'));
                     dispatch(setExistence(true));
                     dispatch(setMessage(`This name already exists!!`));
                     return;
-                } else if( data[i].email === email ){
+                } else if( contacts[i].email === email ){
                     dispatch(setStatus('danger'));
                     dispatch(setExistence(true));
                     dispatch(setMessage(`This email already exists!!`));
                     return;
-                } else if( data[i].phone === phone ){
+                } else if( contacts[i].phone === phone ){
                     dispatch(setStatus('danger'));
                     dispatch(setExistence(true));
                     dispatch(setMessage(`This phone already exists!!`));
