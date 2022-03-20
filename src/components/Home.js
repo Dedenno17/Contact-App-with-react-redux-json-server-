@@ -9,6 +9,20 @@ const Home = () => {
     const contacts = useSelector(state => state.contact.contacts);
     const dispatch = useDispatch();
 
+    const compare = (a, b) => {
+        const studentNameA = a.name.toUpperCase();
+        const studentNameB = b.name.toUpperCase();
+
+        let comparison = 0;
+        if( studentNameA > studentNameB ) {
+            comparison = 1;
+        } else if( studentNameB > studentNameA ) {
+            comparison = -1;
+        }
+
+        return comparison;
+    }
+
     useEffect(() => {
 
         const abortCont = new AbortController();
@@ -24,6 +38,8 @@ const Home = () => {
                 })
                 .then((res) => {
                     let newRes = [...res];
+                    newRes.sort(compare);
+
                     dispatch(setContacts(newRes));
                 })
                 .catch((err) => {
@@ -33,12 +49,12 @@ const Home = () => {
                         alert(err.message);
                     }
                 })
-        }, 1000)
+        }, 2000)
 
         return () => abortCont.abort();
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    });
+    }, [contacts]);
 
 
     return (
