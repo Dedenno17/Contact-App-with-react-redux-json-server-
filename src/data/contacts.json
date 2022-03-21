@@ -1,58 +1,56 @@
 {
-  "contacts": [
-    {
-      "id": "1",
-      "name": "Jackson Brown",
-      "email": "jacksonbrown@gmail.com",
-      "phone": "081497526783"
-    },
-    {
-      "name": "Jessica Chen",
-      "email": "jessicachen@gmail.com",
-      "phone": "089712341278",
-      "id": "W1OI2EX"
-    },
-    {
-      "name": "Camila Rodriguez",
-      "email": "camilarodriguez@gmail.com",
-      "phone": "083456789028",
-      "id": "Xgau3em"
-    },
-    {
-      "name": "Kim Jae Young",
-      "email": "kimjaeyoung@gmail.com",
-      "phone": "089654328907",
-      "id": "sGmjA2r"
-    },
-    {
-      "name": "Marcos Gonzales",
-      "email": "marcosgonzales@gmail.com",
-      "phone": "084312145171",
-      "id": "j-Agt5k"
-    },
-    {
-      "name": "Ahmad Deden Setiawan",
-      "email": "ahmaddeden883@gmail.com",
-      "phone": "089765432123",
-      "id": "VD_ltnJ"
-    },
-    {
-      "name": "Frank Buggeti",
-      "email": "frankbuggeti@gmail.com",
-      "phone": "089083456789",
-      "id": "lxIBq2F"
-    },
-    {
-      "name": "Gabriel Hilton",
-      "email": "gabrielhilton@gmail.com",
-      "phone": "08876523456",
-      "id": "NGQyK6j"
-    },
-    {
-      "name": "Silvia Ivannova",
-      "email": "silviaivannova@gmail.com",
-      "phone": "089012345678",
-      "id": "UOtURv6"
-    }
-  ]
+  "contacts": [{
+    "id": "1",
+    "name": "Jackson Brown",
+    "email": "jacksonbrown@gmail.com",
+    "phone": "081497526783"
+  },
+  {
+    "name": "Jessica Chen",
+    "email": "jessicachen@gmail.com",
+    "phone": "089712341278",
+    "id": "W1OI2EX"
+  },
+  {
+    "name": "Camila Rodriguez",
+    "email": "camilarodriguez@gmail.com",
+    "phone": "083456789028",
+    "id": "Xgau3em"
+  },
+  {
+    "name": "Kim Jae Young",
+    "email": "kimjaeyoung@gmail.com",
+    "phone": "089654328907",
+    "id": "sGmjA2r"
+  },
+  {
+    "name": "Marcos Gonzales",
+    "email": "marcosgonzales@gmail.com",
+    "phone": "084312145171",
+    "id": "j-Agt5k"
+  },
+  {
+    "name": "Ahmad Deden Setiawan",
+    "email": "ahmaddeden883@gmail.com",
+    "phone": "089765432123",
+    "id": "VD_ltnJ"
+  },
+  {
+    "name": "Frank Buggeti",
+    "email": "frankbuggeti@gmail.com",
+    "phone": "089083456789",
+    "id": "lxIBq2F"
+  },
+  {
+    "name": "Gabriel Hilton",
+    "email": "gabrielhilton@gmail.com",
+    "phone": "08876523456",
+    "id": "NGQyK6j"
+  },
+  {
+    "name": "Silvia Ivannova",
+    "email": "silviaivannova@gmail.com",
+    "phone": "089012345678",
+    "id": "UOtURv6"
+  }]
 }

@@ -97,6 +97,10 @@ code {
 
 .table-contact tr:hover {background-color: #ddd;}
 
+.table-contact tbody tr {
+  height: 30px;
+}
+
 .table-contact th {
   padding-top: 12px;
   padding-bottom: 12px;

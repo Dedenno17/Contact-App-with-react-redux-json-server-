@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import TableDefault from "./TableDefault";
 
 const TableContact = ({ contacts }) => {
 
@@ -20,7 +21,8 @@ const TableContact = ({ contacts }) => {
                 </tr>
             </thead>
             <tbody>
-                {contacts.map((item) => {
+                { contacts.length === 0 ? <TableDefault /> :
+                contacts.map((item) => {
                     return <tr key={item.id}>
                                 <td>{contacts.indexOf(item) + 1}</td>
                                 <td>{item.name}</td>

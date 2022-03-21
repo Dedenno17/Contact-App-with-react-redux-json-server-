@@ -6,7 +6,6 @@ const Home = () => {
 
     const { contacts } = useFetch('http://localhost:8000/contacts', 'GET');
 
-
     return (
         <div className="home">
             <h1>Student's Contact</h1>

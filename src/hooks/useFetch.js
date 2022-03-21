@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setContacts } from '../features/contact';
 
 
-const useFetch = (url, method, id) => {
+const useFetch = (url) => {
     
     const dispatch = useDispatch();
     const contacts = useSelector((state) => state.contact.contacts);
@@ -27,11 +27,8 @@ const useFetch = (url, method, id) => {
         const abortCont = new AbortController();
         
         setTimeout(() => {
-            if( !id ) {
-                fetch(url, { 
-                    method,
-                    signal: abortCont.signal,
-                }).then((response) => {
+                fetch(url, { signal: abortCont.signal})
+                    .then((response) => {
                         if( !response.ok ){
                             throw new Error('could not fetch the data for that resource!');
                         }else{
@@ -51,16 +48,13 @@ const useFetch = (url, method, id) => {
                             alert(err.message);
                         }
                     })
-            }else{
-                
-            }
 
         }, 2000)
     
         return () => abortCont.abort();
     
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [url]); 
+    }); 
 
     return { contacts };
 }
