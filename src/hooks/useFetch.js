@@ -54,7 +54,7 @@ const useFetch = (url) => {
         return () => abortCont.abort();
     
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }); 
+    } , [url]); 
 
     return { contacts };
 }
